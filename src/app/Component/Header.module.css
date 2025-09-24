@@ -1,0 +1,102 @@
+.header {
+  background-color: #ffe0cc; /* cam nhạt */
+  padding: 8px 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoImg {
+  width: 68px;
+  height: auto;
+}
+
+.nav {
+  flex-grow: 1;
+  justify-content: end;
+  margin-right: 15px;
+}
+
+.link {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: red;
+}
+
+.active {
+  color: red;
+  font-weight: 700;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.iconWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 6px;
+}
+.iconWrapper p {
+  font-weight: 700;
+  font-size: 12px;
+  color: black;
+  margin: 0;
+}
+
+.email {
+  font-size: 8px;
+  color: #333;
+}
+.user {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px; /* giống gap="xs" */
+}
+/* Tablet */
+@media (max-width: 992px) {
+  .link {
+    font-size: 16px;
+  }
+
+  .email {
+    font-size: 12px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav {
+    display: none; /* Ẩn menu giữa */
+  }
+
+  .logoImg {
+    width: 45px;
+  }
+
+  .email {
+    display: none; /* Ẩn email khi nhỏ */
+  }
+
+  .right {
+    gap: 10px;
+  }
+
+  .iconWrapper {
+    font-size: 10px;
+  }
+}

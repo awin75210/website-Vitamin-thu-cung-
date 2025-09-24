@@ -1,0 +1,28 @@
+.card-title {
+  font-size: 1.5rem; /* chữ to hơn (≈ 24px) */
+  font-weight: 700; /* đậm */
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 1rem; /* vừa phải ≈ 16px */
+  font-weight: 400; /* chữ thường */
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.card-button {
+  font-size: 1rem; /* nút chữ vừa phải */
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
