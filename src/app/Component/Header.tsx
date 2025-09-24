@@ -8,6 +8,8 @@ import {
   Text,
   Container,
   Burger,
+  Drawer,
+  Stack,
 } from "@mantine/core";
 import { IconBell, IconQuestionMark, IconWorld } from "@tabler/icons-react";
 import { useState } from "react";
@@ -16,7 +18,8 @@ import { usePathname } from "next/navigation";
 
 export function Header() {
   const [opened, setOpened] = useState(false);
-  const pathname = usePathname(); // 👈 Lấy URL hiện tại
+  const pathname = usePathname();
+
   const navItems = [
     { href: "/", label: "Trang chủ" },
     { href: "/cuu-ho", label: "Cứu hộ" },
@@ -37,7 +40,7 @@ export function Header() {
           </Link>
         </Group>
 
-        {/* Navigation */}
+        {/* Navigation - desktop */}
         <Group gap="lg" className={classes.nav} visibleFrom="md">
           {navItems.map((item) => (
             <Link
@@ -73,8 +76,8 @@ export function Header() {
             <Text size="xs">Tiếng Việt</Text>
           </div>
 
-          {/* Avatar + email */}
-          <Group gap="xs" className={classes.user}>
+          {/* Avatar */}
+          <Group gap="xs" className={classes.user} visibleFrom="md">
             <Avatar
               src="https://i.pravatar.cc/40"
               alt="user"
@@ -86,7 +89,7 @@ export function Header() {
             </Text>
           </Group>
 
-          {/* Burger menu (chỉ mobile) */}
+          {/* Burger menu - mobile */}
           <Burger
             opened={opened}
             onClick={() => setOpened((o) => !o)}
@@ -94,6 +97,31 @@ export function Header() {
           />
         </Group>
       </Container>
+
+      {/* Drawer hiển thị menu khi mobile */}
+      <Drawer
+        opened={opened}
+        onClose={() => setOpened(false)}
+        size="80%"
+        padding="md"
+        title="Menu"
+        hiddenFrom="md"
+      >
+        <Stack>
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`${classes.link} ${
+                pathname === item.href ? classes.active : ""
+              }`}
+              onClick={() => setOpened(false)} // đóng drawer khi bấm
+            >
+              {item.label}
+            </Link>
+          ))}
+        </Stack>
+      </Drawer>
     </header>
   );
 }
