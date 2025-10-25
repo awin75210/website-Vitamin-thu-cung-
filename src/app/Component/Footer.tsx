@@ -1,117 +1,143 @@
-"use client";
-
 import {
   Container,
   Grid,
+  GridCol,
+  Text,
+  Title,
   Group,
   Anchor,
-  Text,
-  ActionIcon,
 } from "@mantine/core";
 import {
-  IconBrandX,
+  IconBrandFacebook,
   IconBrandInstagram,
+  IconBrandPinterest,
   IconBrandYoutube,
-  IconBrandLinkedin,
+  IconMapPin,
+  IconPhone,
+  IconMail,
+  IconWorld,
 } from "@tabler/icons-react";
 
-const socialLinks = [
-  { icon: <IconBrandX size={20} />, href: "https://x.com" },
-  { icon: <IconBrandInstagram size={20} />, href: "https://instagram.com" },
-  { icon: <IconBrandYoutube size={20} />, href: "https://youtube.com" },
-  { icon: <IconBrandLinkedin size={20} />, href: "https://linkedin.com" },
-];
-
-const footerLinks = [
-  {
-    title: "Use cases",
-    links: [
-      { label: "UI design", href: "#" },
-      { label: "UX design", href: "#" },
-      { label: "Wireframing", href: "#" },
-      { label: "Diagramming", href: "#" },
-      { label: "Brainstorming", href: "#" },
-      { label: "Online whiteboard", href: "#" },
-      { label: "Team collaboration", href: "#" },
-    ],
-  },
-  {
-    title: "Explore",
-    links: [
-      { label: "Design", href: "#" },
-      { label: "Prototyping", href: "#" },
-      { label: "Development features", href: "#" },
-      { label: "Design systems", href: "#" },
-      { label: "Collaboration features", href: "#" },
-      { label: "Design process", href: "#" },
-      { label: "FigJam", href: "#" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Blog", href: "#" },
-      { label: "Best practices", href: "#" },
-      { label: "Colors", href: "#" },
-      { label: "Color wheel", href: "#" },
-      { label: "Support", href: "#" },
-      { label: "Developers", href: "#" },
-      { label: "Resource library", href: "#" },
-    ],
-  },
-];
-
-export default function Footer() {
+export default function FooterSection() {
   return (
-    <div
+    <footer
       style={{
-        borderTop: "1px solid #eaeaea",
-        marginTop: 40,
-        padding: "40px 0",
+        backgroundColor: "#f9f9f9",
+        padding: "60px 0 20px 0",
+        position: "relative",
       }}
     >
-      <Container size="lg">
-        <Grid gutter="lg">
-          {/* Social Icons */}
-          <Grid.Col span={{ base: 12, sm: 3 }}>
-            <Group gap="sm">
-              {socialLinks.map((s, i) => (
-                <ActionIcon
-                  key={i}
-                  component="a"
-                  href={s.href}
-                  target="_blank"
-                  variant="subtle"
-                  color="black"
-                  size="lg"
-                >
-                  {s.icon}
-                </ActionIcon>
-              ))}
+      <Container size="xl">
+        <Grid gutter="xl">
+          {/* Cột 1: Giới thiệu */}
+          <GridCol span={{ base: 12, md: 3 }}>
+            <Group align="center" mb="sm">
+              <img
+                src="/logo.png"
+                alt="logo"
+                style={{ width: 28, height: 28 }}
+              />
+              <Title order={5} fw={700}>
+                VITAMIN THÚ CƯNG
+              </Title>
             </Group>
-          </Grid.Col>
 
-          {/* Footer Links */}
-          {footerLinks.map((section, idx) => (
-            <Grid.Col key={idx} span={{ base: 6, sm: 3 }}>
-              <Text fw={700} mb="sm">
-                {section.title}
-              </Text>
-              {section.links.map((link, i) => (
-                <Anchor
-                  key={i}
-                  href={link.href}
-                  c="dimmed"
-                  size="sm"
-                  style={{ display: "block", marginBottom: 6 }}
-                >
-                  {link.label}
-                </Anchor>
-              ))}
-            </Grid.Col>
-          ))}
+            <Text c="dimmed" size="sm" mb="md">
+              Nền tảng chăm sóc toàn diện cho thú cưng Việt Nam – nơi yêu thương
+              và công nghệ gặp nhau.
+            </Text>
+
+            <Group gap="xs">
+              <Anchor href="#" target="_blank">
+                <IconBrandFacebook size={20} color="#000" />
+              </Anchor>
+              <Anchor href="#" target="_blank">
+                <IconBrandInstagram size={20} color="#000" />
+              </Anchor>
+              <Anchor href="#" target="_blank">
+                <IconBrandPinterest size={20} color="#000" />
+              </Anchor>
+              <Anchor href="#" target="_blank">
+                <IconBrandYoutube size={20} color="#000" />
+              </Anchor>
+            </Group>
+          </GridCol>
+
+          {/* Cột 2: Liên kết nhanh */}
+          <GridCol span={{ base: 12, md: 3 }}>
+            <Title order={5} mb="sm">
+              Liên kết nhanh
+            </Title>
+            <Text size="sm" c="dimmed">
+              <div>Trang chủ</div>
+              <div>Cửa hàng sản phẩm</div>
+              <div>Tư vấn sức khỏe</div>
+              <div>Cộng đồng cứu hộ</div>
+            </Text>
+          </GridCol>
+
+          {/* Cột 3: Thông tin liên hệ */}
+          <GridCol span={{ base: 12, md: 3 }}>
+            <Title order={5} mb="sm">
+              Thông tin liên hệ
+            </Title>
+            <Text size="sm" c="dimmed">
+              <Group gap={6}>
+                <IconMapPin size={16} />
+                <span>Trường Đại học Bạc Liêu – Khoa Kỹ thuật & Công nghệ</span>
+              </Group>
+              <Group gap={6} mt={6}>
+                <IconPhone size={16} />
+                <span>0918 778 144</span>
+              </Group>
+              <Group gap={6} mt={6}>
+                <IconMail size={16} />
+                <span>webvitaminthucung@gmail.com</span>
+              </Group>
+              <Group gap={6} mt={6}>
+                <IconWorld size={16} />
+                <span>www.vitaminthucung.vn</span>
+              </Group>
+            </Text>
+          </GridCol>
+
+          {/* Cột 4: Kết nối cộng đồng */}
+          <GridCol span={{ base: 12, md: 3 }}>
+            <Title order={5} mb="sm">
+              Kết nối cộng đồng
+            </Title>
+            <Text c="dimmed" size="sm">
+              Theo dõi chúng tôi
+            </Text>
+
+            <Group mt="xs">
+              <IconBrandInstagram size={22} color="#000" />
+              <IconBrandFacebook size={22} color="#000" />
+              <IconBrandYoutube size={22} color="#000" />
+            </Group>
+
+            <Text c="dimmed" size="sm" mt="sm">
+              Lan tỏa yêu thương <br /> Xây dựng cộng đồng hạnh phúc
+            </Text>
+          </GridCol>
         </Grid>
+
+        {/* Dòng bản quyền */}
+        <div
+          style={{
+            borderTop: "1px solid #eee",
+            marginTop: "40px",
+            paddingTop: "12px",
+            textAlign: "center",
+          }}
+        >
+          <Text size="sm" c="dimmed">
+            © 2025 Vitamin Thú Cưng | Một dự án trải nghiệm sinh viên Đại Học
+            Bạc Liêu <br />
+            “Công nghệ vì hạnh phúc của thú cưng và con người”
+          </Text>
+        </div>
       </Container>
-    </div>
+    </footer>
   );
 }

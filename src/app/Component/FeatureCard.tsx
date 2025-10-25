@@ -22,7 +22,7 @@ export default function FeatureCard({
         flex: 1,
         width: "100%", // cùng chiều rộng
         height: "180px", // cùng chiều cao
-        margin: "4px auto",
+        margin: "2px auto",
         display: "flex",
       }}
     >
